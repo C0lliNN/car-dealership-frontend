@@ -2,21 +2,24 @@
   <v-app id="app">
     <v-navigation-drawer permanent app class="light-blue lighten-5">
       <h1 class="mt-5 text-h5 font-weight-bold">Car Dealership</h1>
-      <v-list dense nav class="mt-5">
-        <v-list-item
-          v-for="link in links"
-          :key="link.title"
-          link
-          @click="$router.push(link.route)"
-        >
-          <v-list-item-icon>
-            <v-icon>{{ link.icon }}</v-icon>
-          </v-list-item-icon>
+      <v-list nav flat class="mt-5">
+        
+          <v-list-item
+            v-for="link in links"
+            :key="link.title"
+            link
+            @click="$router.push(link.route)"
+            class="text-h6"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ link.icon }}</v-icon>
+            </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ link.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>{{ link.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        
       </v-list>
     </v-navigation-drawer>
     <v-main>
