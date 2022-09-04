@@ -19,3 +19,21 @@ export async function getHomeInformation() {
     sellers: responses[2].length
   };
 }
+
+export async function getVehicles() {
+  const response = await axios.get('/vehicles');
+  return response.data;
+}
+
+export async function createVehicle(vehicle) {
+  const response = await axios.post('/vehicles', vehicle);
+  return response.data
+}
+
+export async function saveVehicle(vehicle) {
+  await axios.patch(`/vehicles/${vehicle.id}`, vehicle);
+}
+
+export async function deleteVehicle(vehicle) {
+  await axios.delete(`/vehicles/${vehicle.id}`);
+}

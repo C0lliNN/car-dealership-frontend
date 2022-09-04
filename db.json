@@ -1,7 +1,7 @@
 {
   "vehicles": [
     {
-      "id": "car-1",
+      "id": 1,
       "name": "HB20",
       "brand": "Hyundai",
       "color": "WHITE",
@@ -9,7 +9,7 @@
       "type": "HATCH",
       "chassis": "234234234",
       "mileage": 60000,
-      "releaseYear": 2014,
+      "releaseYear": 2015,
       "acquisition": {
         "date": "2022-07-01",
         "price": 35000,
@@ -19,14 +19,14 @@
       "sold": false
     },
     {
-      "id": "car-2",
+      "id": 2,
       "name": "Onix",
       "brand": "Chevrolet",
       "color": "GRAY",
       "status": "SOLD",
       "type": "SEDAN",
       "chassis": "235252654",
-      "mileage": 0,
+      "mileage": 50000,
       "releaseYear": 2022,
       "acquisition": {
         "date": "2022-07-01",
@@ -42,46 +42,42 @@
       "sold": true
     },
     {
-      "id": "0a7f176b-c4d0-4f19-ac76-ff77d42a177d",
-      "name": "HB20",
-      "brand": "Hyundai",
-      "color": "WHITE",
+      "id": 3,
+      "name": "Argo",
+      "brand": "Fiat",
+      "color": "RED",
       "status": "ACTIVE",
       "type": "HATCH",
-      "chassis": "234234234",
-      "mileage": 60000,
-      "releaseYear": 2014,
+      "chassis": "234234235",
+      "mileage": 65000,
+      "releaseYear": 2022,
       "acquisition": {
         "date": "2022-07-01",
-        "price": 35000,
+        "price": 65000,
         "source": "PRIVATE"
       },
       "photos": [],
       "sold": false
     },
     {
-      "id": "e8cb425d-e9ba-46ff-9ef1-e360785fb8e2",
-      "name": "HB20",
-      "brand": "Hyundai",
+      "id": 4,
+      "name": "Gol",
+      "brand": "Volkswagen",
       "color": "WHITE",
       "status": "ACTIVE",
       "type": "HATCH",
-      "chassis": "234234234",
-      "mileage": 60000,
-      "releaseYear": 2014,
+      "chassis": "89854654",
+      "mileage": 0,
+      "releaseYear": 2023,
       "acquisition": {
-        "date": "2022-07-01",
-        "price": 35000,
+        "date": "2022-05-02",
+        "price": 60000,
         "source": "PRIVATE"
       },
       "photos": [
         {
-          "description": "Front",
-          "url": "https://www.netcarshow.com/Hyundai-HB20S-2013-1600-0a.jpg"
-        },
-        {
-          "description": "Back",
-          "url": "https://www.netcarshow.com/Hyundai-HB20S-2013-1600-0b.jpg"
+          "description": "some description",
+          "url": "google.com"
         }
       ],
       "sold": false
