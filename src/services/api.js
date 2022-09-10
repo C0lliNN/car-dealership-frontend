@@ -37,3 +37,21 @@ export async function saveVehicle(vehicle) {
 export async function deleteVehicle(vehicle) {
   await axios.delete(`/vehicles/${vehicle.id}`);
 }
+
+export async function getSellers() {
+  const response = await axios.get('/sellers');
+  return response.data;
+}
+
+export async function createSeller(seller) {
+  const response = await axios.post('/sellers', seller);
+  return response.data
+}
+
+export async function saveSeller(seller) {
+  await axios.patch(`/sellers/${seller.id}`, seller);
+}
+
+export async function deleteSeller(seller) {
+  await axios.delete(`/sellers/${seller.id}`);
+}
