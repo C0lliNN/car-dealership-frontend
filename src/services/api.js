@@ -55,3 +55,13 @@ export async function saveSeller(seller) {
 export async function deleteSeller(seller) {
   await axios.delete(`/sellers/${seller.id}`);
 }
+
+export async function getSales() {
+  const response = await axios.get('/sales');
+  return response.data;
+}
+
+export async function createSale(sale) {
+  const response = await axios.post('/sales', sale);
+  return response.data;
+}
