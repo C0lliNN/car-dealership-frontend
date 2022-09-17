@@ -60,6 +60,13 @@
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             type="email"
+                            v-model="newSale.customerEmail"
+                            label="Customer Email"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field
+                            type="email"
                             v-model="newSale.customerPhone"
                             label="Customer Phone"
                           ></v-text-field>
@@ -292,7 +299,7 @@ export default {
     async save() {
       try {
         const sale = await createSale(this.newSale);
-        this.sales.push(sale)
+        this.sales.push(sale);
 
         this.close();
       } catch (e) {

@@ -1,12 +1,24 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:8083';
 
 axios.defaults.baseURL = BASE_URL;
+axios.interceptors.request.use((config) => {
+  try {
+    const vuex = localStorage.getItem('vuex');
+    const token = JSON.parse(vuex).auth.token;
+
+    config.headers['Authorization'] = `Bearer ${token}`;
+  } catch (err) {
+    console.error(err);
+  }
+
+  return config;
+});
 
 export async function getHomeInformation() {
   let responses = await Promise.all([
-    axios.get('/vehicles'),
+    axios.get('/cars'),
     axios.get('/sales'),
     axios.get('/sellers')
   ]);
@@ -21,21 +33,21 @@ export async function getHomeInformation() {
 }
 
 export async function getVehicles() {
-  const response = await axios.get('/vehicles');
+  const response = await axios.get('/cars');
   return response.data;
 }
 
 export async function createVehicle(vehicle) {
-  const response = await axios.post('/vehicles', vehicle);
+  const response = await axios.post('/cars', vehicle);
   return response.data;
 }
 
 export async function saveVehicle(vehicle) {
-  await axios.patch(`/vehicles/${vehicle.id}`, vehicle);
+  await axios.put(`/cars/${vehicle.id}`, vehicle);
 }
 
 export async function deleteVehicle(vehicle) {
-  await axios.delete(`/vehicles/${vehicle.id}`);
+  await axios.delete(`/cars/${vehicle.id}`);
 }
 
 export async function getSellers() {
@@ -49,7 +61,7 @@ export async function createSeller(seller) {
 }
 
 export async function saveSeller(seller) {
-  await axios.patch(`/sellers/${seller.id}`, seller);
+  await axios.put(`/sellers/${seller.id}`, seller);
 }
 
 export async function deleteSeller(seller) {

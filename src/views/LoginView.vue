@@ -32,8 +32,15 @@ export default {
     ...mapActions(['Login']),
     async handleSubmit(e) {
       e.preventDefault();
-      await this.$store.dispatch('Login', this.email, this.password);
-      this.$router.push('/');
+      try {
+        await this.$store.dispatch('Login', {
+          email: this.email,
+          password: this.password
+        });
+        this.$router.push('/');
+      } catch (err) {
+        alert(err);
+      }
     }
   }
 };
