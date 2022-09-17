@@ -27,7 +27,7 @@ export async function getVehicles() {
 
 export async function createVehicle(vehicle) {
   const response = await axios.post('/vehicles', vehicle);
-  return response.data
+  return response.data;
 }
 
 export async function saveVehicle(vehicle) {
@@ -45,7 +45,7 @@ export async function getSellers() {
 
 export async function createSeller(seller) {
   const response = await axios.post('/sellers', seller);
-  return response.data
+  return response.data;
 }
 
 export async function saveSeller(seller) {
@@ -64,4 +64,9 @@ export async function getSales() {
 export async function createSale(sale) {
   const response = await axios.post('/sales', sale);
   return response.data;
+}
+
+export async function login({ email, password }) {
+  const response = await axios.post('/auth/login', { email, password });
+  return response.data.token;
 }

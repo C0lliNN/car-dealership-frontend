@@ -291,9 +291,8 @@ export default {
     },
     async save() {
       try {
-        await createSale(this.newSale);
-        const sales = await getSales();
-        this.sales = sales;
+        const sale = await createSale(this.newSale);
+        this.sales.push(sale)
 
         this.close();
       } catch (e) {

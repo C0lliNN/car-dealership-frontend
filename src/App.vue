@@ -1,26 +1,30 @@
 <template>
   <v-app id="app">
-    <v-navigation-drawer permanent app class="light-blue lighten-5">
+    <v-navigation-drawer
+      v-if="isAuthenticated"
+      permanent
+      app
+      class="light-blue lighten-5"
+    >
       <h1 class="mt-5 text-h5 font-weight-bold">Car Dealership</h1>
       <v-list nav flat class="mt-5">
-        
-          <v-list-item
-            v-for="link in links"
-            :key="link.title"
-            link
-            @click="$router.push(link.route)"
-            class="text-h6"
-          >
-            <v-list-item-icon>
-              <v-icon>{{ link.icon }}</v-icon>
-            </v-list-item-icon>
+        <v-list-item
+          v-for="link in links"
+          :key="link.title"
+          link
+          @click="$router.push(link.route)"
+          class="text-h6"
+        >
+          <v-list-item-icon>
+            <v-icon>{{ link.icon }}</v-icon>
+          </v-list-item-icon>
 
-            <v-list-item-content>
-              <v-list-item-title>{{ link.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        
+          <v-list-item-content>
+            <v-list-item-title>{{ link.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
+      <v-btn @click="handleLogout" color="error">Logout</v-btn>
     </v-navigation-drawer>
     <v-main>
       <v-container fluid>
@@ -36,6 +40,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   data() {
     return {
@@ -46,6 +52,14 @@ export default {
         { title: 'Sellers', icon: 'mdi-account', route: '/sellers' }
       ]
     };
+  },
+  computed: { ...mapGetters(['isAuthenticated']) },
+  methods: {
+    ...mapActions(['Logout']),
+    handleLogout() {
+      this.Logout();
+      this.$router.push('/login');
+    }
   }
 };
 </script>
