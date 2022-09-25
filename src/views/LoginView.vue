@@ -1,13 +1,13 @@
 <template>
   <main>
-    <h1>Car Dealership</h1>
+    <h1>Concessionária</h1>
     <v-form @submit="handleSubmit" class="mt-10">
       <v-container>
         <v-row justify="center">
           <v-col sm="12" md="6" lg="4">
             <v-text-field v-model="email" type="email" label="Email">
             </v-text-field>
-            <v-text-field v-model="password" type="password" label="Password">
+            <v-text-field v-model="password" type="password" label="Senha">
             </v-text-field>
             <v-btn type="submit" color="primary">Login</v-btn>
           </v-col>

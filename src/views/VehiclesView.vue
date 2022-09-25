@@ -11,7 +11,7 @@
         >
           <template v-slot:top>
             <v-toolbar flat>
-              <v-toolbar-title>Registered Vehicles</v-toolbar-title>
+              <v-toolbar-title>Veículos Cadastrados</v-toolbar-title>
               <v-divider class="mx-4" inset vertical></v-divider>
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="850px">
@@ -23,7 +23,7 @@
                     v-bind="attrs"
                     v-on="on"
                   >
-                    New Vehicle
+                    Novo Veículo
                   </v-btn>
                 </template>
                 <v-card>
@@ -34,33 +34,41 @@
                   <v-card-text>
                     <v-container>
                       <v-row>
-                        <h4>General Information</h4>
+                        <h4>Informações Gerais</h4>
                       </v-row>
                       <v-row>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             v-model="editedVehicle.name"
-                            label="Name"
+                            label="Nome"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             v-model="editedVehicle.brand"
-                            label="Brand"
+                            label="Marca"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-select
                             v-model="editedVehicle.status"
-                            :items="['ACTIVE', 'SOLD']"
+                            :items="[
+                              { text: 'Ativo', value: 'ACTIVE' },
+                              { text: 'Vendido', value: 'SOLD' }
+                            ]"
                             label="Status"
                           ></v-select>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-select
-                            :items="['WHITE', 'GRAY', 'BLACK', 'RED']"
+                            :items="[
+                              { text: 'Branco', value: 'WHITE' },
+                              { text: 'Cinza', value: 'GRAY' },
+                              { text: 'Preto', value: 'BLACK' },
+                              { text: 'Vermelho', value: 'RED' }
+                            ]"
                             v-model="editedVehicle.color"
-                            label="Color"
+                            label="Cor"
                           >
                           </v-select>
                         </v-col>
@@ -68,7 +76,7 @@
                           <v-select
                             :items="['HATCH', 'SEDAN', 'SUV']"
                             v-model="editedVehicle.type"
-                            label="Type"
+                            label="Tipo"
                           >
                           </v-select>
                         </v-col>
@@ -82,32 +90,41 @@
                           <v-text-field
                             type="number"
                             v-model.number="editedVehicle.mileage"
-                            label="Mileage"
+                            label="Quilometragem"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             type="number"
                             v-model.number="editedVehicle.releaseYear"
-                            label="Release Year"
+                            label="Ano de Lançamento"
                           ></v-text-field>
                         </v-col>
                       </v-row>
                       <v-row>
-                        <h4>Vehicle Acquisition</h4>
+                        <h4>Aquisição do Veículo</h4>
                       </v-row>
                       <v-row>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             type="date"
                             v-model="editedVehicle.acquisition.date"
-                            label="Acquisition Date"
+                            label="Data de Aquisição"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-select
-                            :items="['PRIVATE', 'VENDOR']"
-                            label="Acquisition Source"
+                            :items="[
+                              {
+                                text: 'Particular',
+                                value: 'PRIVATE'
+                              },
+                              {
+                                text: 'Concessionária',
+                                value: 'VENDOR'
+                              }
+                            ]"
+                            label="Fonte de Aquisição"
                             v-model="editedVehicle.acquisition.source"
                           >
                           </v-select>
@@ -116,12 +133,12 @@
                           <v-text-field
                             type="number"
                             v-model.number="editedVehicle.acquisition.price"
-                            label="Acquisition Price"
+                            label="Preço de Aquisição"
                           ></v-text-field>
                         </v-col>
                       </v-row>
                       <v-row>
-                        <h4>Photos</h4>
+                        <h4>Fotos</h4>
                       </v-row>
                       <v-row v-for="(_, i) in editedVehicle.photos" :key="i">
                         <v-col cols="12" sm="6">
@@ -133,7 +150,7 @@
                         <v-col cols="12" sm="5">
                           <v-text-field
                             v-model="editedVehicle.photos[i].description"
-                            label="Description"
+                            label="Descrição"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="1" class="align-center">
@@ -143,7 +160,7 @@
                         </v-col>
                       </v-row>
                       <v-row>
-                        <v-btn @click="addPhoto">Add Photo</v-btn>
+                        <v-btn @click="addPhoto">Adicionar Foto</v-btn>
                       </v-row>
                     </v-container>
                   </v-card-text>
@@ -151,10 +168,10 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="blue darken-1" text @click="close">
-                      Cancel
+                      Cancelar
                     </v-btn>
                     <v-btn color="blue darken-1" text @click="save">
-                      Save
+                      Salvar
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -181,11 +198,11 @@ export default {
       vehicles: [],
       headers: [
         {
-          text: 'Name',
+          text: 'Nome',
           value: 'name'
         },
         {
-          text: 'Brand',
+          text: 'Marca',
           value: 'brand'
         },
         {
@@ -193,15 +210,15 @@ export default {
           value: 'status'
         },
         {
-          text: 'Color',
+          text: 'Cor',
           value: 'color'
         },
         {
-          text: 'Acquisition Price',
+          text: 'Preço de Aquisição',
           value: 'acquisition.price'
         },
         {
-          text: 'Actions',
+          text: 'Ações',
           value: 'actions',
           sortable: false
         }
@@ -266,7 +283,7 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? 'New Vehicle' : 'Edit Vehicle';
+      return this.editedIndex === -1 ? 'Novo Veículo' : 'Editar Vehicle';
     }
   },
   watch: {

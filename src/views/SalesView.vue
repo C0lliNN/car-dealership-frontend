@@ -11,7 +11,7 @@
         >
           <template v-slot:top>
             <v-toolbar flat>
-              <v-toolbar-title>Registered Sales</v-toolbar-title>
+              <v-toolbar-title>Vendas Registradas</v-toolbar-title>
               <v-divider class="mx-4" inset vertical></v-divider>
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="850px">
@@ -23,66 +23,66 @@
                     v-bind="attrs"
                     v-on="on"
                   >
-                    New Sale
+                    Nova Venda
                   </v-btn>
                 </template>
                 <v-card>
                   <v-card-title>
-                    <span class="text-h5">New Sale</span>
+                    <span class="text-h5">Nova Venda</span>
                   </v-card-title>
 
                   <v-card-text>
                     <v-container>
                       <v-row>
-                        <h4>General Information</h4>
+                        <h4>Informações Gerais</h4>
                       </v-row>
                       <v-row>
                         <v-col cols="12" sm="6" md="4">
                           <v-select
                             v-model="newSale.carId"
                             :items="vehicles"
-                            label="Vehicle"
+                            label="Veículo"
                           ></v-select>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-select
                             v-model="newSale.sellerId"
                             :items="sellers"
-                            label="Seller"
+                            label="Vendedor"
                           ></v-select>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             v-model="newSale.customerName"
-                            label="Customer Name"
+                            label="Nome do Cliente"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             type="email"
                             v-model="newSale.customerEmail"
-                            label="Customer Email"
+                            label="Email do Cliente"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             type="email"
                             v-model="newSale.customerPhone"
-                            label="Customer Phone"
+                            label="Telefone do Cliente"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             type="number"
                             v-model.number="newSale.price"
-                            label="Price (cents)"
+                            label="Preço (centavos)"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             type="date"
                             v-model="newSale.date"
-                            label="Date"
+                            label="Data"
                           ></v-text-field>
                         </v-col>
                       </v-row>
@@ -92,10 +92,10 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="blue darken-1" text @click="close">
-                      Cancel
+                      Cancelar
                     </v-btn>
                     <v-btn color="blue darken-1" text @click="save">
-                      Save
+                      Salvar
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -106,63 +106,63 @@
                   <v-card-text>
                     <v-row class="text-left mt-3">
                       <v-col cols="12" sm="6">
-                        <p><strong>Date:</strong> {{ selectedSale?.date }}</p>
+                        <p><strong>Data:</strong> {{ selectedSale?.date }}</p>
                       </v-col>
                       <v-col cols="12" sm="6">
-                        <p><strong>Price:</strong> {{ selectedSale?.price }}</p>
+                        <p><strong>Preço:</strong> {{ selectedSale?.price }}</p>
                       </v-col>
                       <v-col cols="12" sm="6">
                         <p>
-                          <strong>Customer Name:</strong>
+                          <strong>Nome do Cliente:</strong>
                           {{ selectedSale?.customer.name }}
                           >
                         </p></v-col
                       >
                       <v-col cols="12" sm="6">
                         <p>
-                          <strong>Customer Email:</strong>
+                          <strong>Email do Cliente:</strong>
                           {{ selectedSale?.customer.email }}
                         </p></v-col
                       >
                       <v-col cols="12" sm="6">
                         <p>
-                          <strong>Customer Phone:</strong>
+                          <strong>Telefone do Cliente:</strong>
                           {{ selectedSale?.customer.phone }}
                         </p></v-col
                       >
                       <v-col cols="12" sm="6">
                         <p>
-                          <strong>Seller Name:</strong>
+                          <strong>Nome do Vendedor:</strong>
                           {{ selectedSale?.seller.name }}
                         </p></v-col
                       >
                       <v-col cols="12" sm="6">
                         <p>
-                          <strong>Seller Email:</strong>
+                          <strong>Email do Vendedor:</strong>
                           {{ selectedSale?.seller.email }}
                         </p></v-col
                       >
                       <v-col cols="12" sm="6">
                         <p>
-                          <strong>Car Name:</strong>
+                          <strong>Nome do Carro:</strong>
                           {{ selectedSale?.car.name }}
                         </p>
                       </v-col>
                       <v-col cols="12" sm="6">
                         <p>
-                          <strong>Car Brand:</strong>
+                          <strong>Marca do Carro:</strong>
                           {{ selectedSale?.car.brand }}
                         </p>
                       </v-col>
                       <v-col cols="12" sm="6">
                         <p>
-                          <strong>Car Acquisition Date:</strong>
+                          <strong>Data de Aquisição do Carro:</strong>
                           {{ selectedSale?.car.acquisition.date }}
                         </p>
                       </v-col>
                       <v-col cols="12" sm="6">
                         <p>
-                          <strong>Car Acquisition Price:</strong>
+                          <strong>Preço de Aquisição do Carro:</strong>
                           {{ selectedSale?.car.acquisition.price }}
                         </p>
                       </v-col>
@@ -171,7 +171,7 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="blue darken-1" text @click="closeDetails"
-                      >Close</v-btn
+                      >Fechar</v-btn
                     >
                     <v-spacer></v-spacer>
                   </v-card-actions>
@@ -206,27 +206,27 @@ export default {
       vehicles: [],
       headers: [
         {
-          text: 'Date',
+          text: 'Data',
           value: 'date'
         },
         {
-          text: 'Sale Price',
+          text: 'Preço de Venda',
           value: 'price'
         },
         {
-          text: 'Customer Name',
+          text: 'Nome do Cliente',
           value: 'customer.name'
         },
         {
-          text: 'Seller Name',
+          text: 'Nome de Vendedor',
           value: 'seller.name'
         },
         {
-          text: 'Profit',
+          text: 'Lucro',
           value: 'profit'
         },
         {
-          text: 'Actions',
+          text: 'Ações',
           value: 'actions',
           sortable: false
         }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8083';
+const BASE_URL = 'https://car-dealership-pweb.herokuapp.com';
 
 axios.defaults.baseURL = BASE_URL;
 axios.interceptors.request.use((config) => {

@@ -11,7 +11,7 @@
         >
           <template v-slot:top>
             <v-toolbar flat>
-              <v-toolbar-title>Registered Sellers</v-toolbar-title>
+              <v-toolbar-title>Vendedores Cadastrador</v-toolbar-title>
               <v-divider class="mx-4" inset vertical></v-divider>
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="850px">
@@ -23,7 +23,7 @@
                     v-bind="attrs"
                     v-on="on"
                   >
-                    New Seller
+                    Novo Vendedor
                   </v-btn>
                 </template>
                 <v-card>
@@ -34,13 +34,13 @@
                   <v-card-text>
                     <v-container>
                       <v-row>
-                        <h4>General Information</h4>
+                        <h4>Informações Gerais</h4>
                       </v-row>
                       <v-row>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             v-model="editedSeller.name"
-                            label="Name"
+                            label="Nome"
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
@@ -61,7 +61,7 @@
                           <v-text-field
                             type="date"
                             v-model="editedSeller.joinDate"
-                            label="Join Date"
+                            label="Data de Admissão"
                           ></v-text-field>
                         </v-col>
                       </v-row>
@@ -71,10 +71,10 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="blue darken-1" text @click="close">
-                      Cancel
+                      Cancelar
                     </v-btn>
                     <v-btn color="blue darken-1" text @click="save">
-                      Save
+                      Salvar
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -101,7 +101,7 @@ export default {
       sellers: [],
       headers: [
         {
-          text: 'Name',
+          text: 'Nome',
           value: 'name'
         },
         {
@@ -113,11 +113,11 @@ export default {
           value: 'status'
         },
         {
-          text: 'Join Date',
+          text: 'Data de Admissão',
           value: 'joinDate'
         },
         {
-          text: 'Actions',
+          text: 'Ações',
           value: 'actions',
           sortable: false
         }
@@ -153,7 +153,7 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? 'New Seller' : 'Edit Seller';
+      return this.editedIndex === -1 ? 'Novo Vendedor' : 'Editar Vendedor';
     }
   },
   watch: {

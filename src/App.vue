@@ -6,7 +6,7 @@
       app
       class="light-blue lighten-5"
     >
-      <h1 class="mt-5 text-h5 font-weight-bold">Car Dealership</h1>
+      <h1 class="mt-5 text-h5 font-weight-bold">Concessionária</h1>
       <v-list nav flat class="mt-5">
         <v-list-item
           v-for="link in links"
@@ -24,7 +24,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <v-btn @click="handleLogout" color="error">Logout</v-btn>
+      <v-btn @click="handleLogout" color="error">Sair</v-btn>
     </v-navigation-drawer>
     <v-main>
       <v-container fluid>
@@ -33,7 +33,7 @@
     </v-main>
     <v-footer app class="light-blue lighten-5 text-white py-3">
       <h4 class="mx-auto text-center">
-        &copy; Car Dealership 2022 - All Rights Reserved
+        &copy; Concessionária 2022 - Todos Direitos Reservados
       </h4>
     </v-footer>
   </v-app>
@@ -47,9 +47,9 @@ export default {
     return {
       links: [
         { title: 'Home', icon: 'mdi-home', route: '/' },
-        { title: 'Vehicles', icon: 'mdi-car', route: '/vehicles' },
-        { title: 'Sales', icon: 'mdi-basket', route: '/sales' },
-        { title: 'Sellers', icon: 'mdi-account', route: '/sellers' }
+        { title: 'Veículos', icon: 'mdi-car', route: '/vehicles' },
+        { title: 'Vendas', icon: 'mdi-basket', route: '/sales' },
+        { title: 'Vendedores', icon: 'mdi-account', route: '/sellers' }
       ]
     };
   },
