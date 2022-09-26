@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h2>Sales</h2>
+    <h2>Vendas</h2>
     <v-row>
       <v-col cols="9" class="mx-auto">
         <v-data-table
